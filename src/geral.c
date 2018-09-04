@@ -1,6 +1,6 @@
 #include "geral.h"
 
-void geral_erro(void) {
+void geral_erro() {
   // Imprime mensagens de erro
 
   perror("\nErro no programa");
@@ -8,7 +8,7 @@ void geral_erro(void) {
   PAUSA;
 }
 
-void geral_pausar(void) {
+void geral_pausar() {
   // Uma pausa para ver as mensagens no terminal
 
   if (strcmp(SISTEMA,"Linux") == 0)
@@ -16,15 +16,18 @@ void geral_pausar(void) {
   PAUSA;  
 }
 
-int geral_pegarPastaCorrente(char dir_base[]) {
-  // Define o diretorio base como o corrente
-  // 1 = Conseguiu pegar o diretorio, 2 = Nao conseguiu pegar o diretorio
+void geral_pegarPastaCorrente(char dir_base[]) {
+  // Retorna o diretório corrente
+  //
+  // "RETORNO":
+  // Se dir_base[] ficar com um diretório = Sucesso,
+  // Se dir_base[] ficar igual = Falhou
 
   if (strcmp(SISTEMA,"Linux") == 0) {
     int i = 0;
 
     if (readlink("/proc/self/exe", dir_base, MAX_CHAR_DIR) == -1)
-      return 2;
+      return;
     else {
       i = strlen(dir_base);
       while(dir_base[i] != BARRA2)
@@ -33,15 +36,20 @@ int geral_pegarPastaCorrente(char dir_base[]) {
     }
   } else if (strcmp(SISTEMA,"Windows") == 0) {
     if (!GetCurrentDir(dir_base, MAX_CHAR_DIR))
-      return 2;
+      return;
   }
   strcat(dir_base, BARRA);
-  return 1;  
 }
 
 int geral_verificarExistencia(char arquivo[]) {
   // Verifica a exitencia de arquivos
-  // 1 = Pasta ou arquivo existe, 2 = Nao existe
+  //
+  // ENTRADA:
+  // arquivo[] = Caminho do arquivo
+  //
+  // RETORNO:
+  // 1 = Pasta ou arquivo existe,
+  // 2 = Não existe
 
   if (strcmp(SISTEMA,"Linux") == 0) {
     struct stat st;
@@ -55,9 +63,18 @@ int geral_verificarExistencia(char arquivo[]) {
   return 2;
 }
 
-int geral_criarPasta(char pasta[], char temp[]) {
+int geral_criarPasta(char pasta[]) {
   // Cria pastas
-  // 1 = Deu certo, 2 = Falhou, 3 = Ja existe
+  //
+  // ENTRADA:
+  // pasta[] = Caminho de pasta
+  //
+  // RETORNO:
+  // 1 = Criou a pasta,
+  // 2 = Falhou,
+  // 3 = Já existe
+
+  char temp[MAX_CHAR_DIR];
 
   if (geral_verificarExistencia(pasta) == 2) {
     if (strcmp(SISTEMA,"Linux") == 0) {
@@ -76,9 +93,16 @@ int geral_criarPasta(char pasta[], char temp[]) {
   return 3;
 }
 
-int geral_existeCharXNoArrayY(char ch, char array[]) {
+int geral_existeCharXNaStringY(char ch, char array[]) {
   // Verifica se existe o char X no array Y
-  // 1 = Existe, 2 = Nao existe
+  //
+  // ENTRADA:
+  // ch = Caracter a ser procurado
+  // array[] = Texto onde procuraremos o caracter
+  //
+  // RETORNO:
+  // 1 = Caracter existe,
+  // 2 = Não existe
   
   int i;
 
@@ -88,15 +112,3 @@ int geral_existeCharXNoArrayY(char ch, char array[]) {
   }
   return 0;
 }
-
-/*
-// Funcao main para testes:
-void main(void) {
-  char dir_base[MAX_CHAR_DIR];
-  int i = 0, c;
-
-  geral_pegarPastaCorrente(dir_base);
-  
-  printf("%s\n", dir_base);
-}
-*/

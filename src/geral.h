@@ -1,5 +1,5 @@
 /*
- * GERAL v1.0 [10/06/2016]
+ * GERAL v1.1 [10/06/2016]
  * por Xalalau Xubilozo
  *
  * Licensa: CC BY-NC-SA 4.0
@@ -49,9 +49,9 @@
 #define MAX_CHAR_DIR 255
 #define MAX_CHAR_URL 2000
 
-void geral_erro(void);
-void geral_pausar(void);
-int geral_pegarPastaCorrente(char dir_base[]);
+void geral_erro();
+void geral_pausar();
+void geral_pegarPastaCorrente();
 int geral_verificarExistencia(char arquivo[]);
-int geral_criarPasta(char pasta[], char temp[]);
+int geral_criarPasta(char pasta[]);
 int geral_existeCharXNoArrayY(char ch, char array[]);

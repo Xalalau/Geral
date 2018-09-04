@@ -1,0 +1,7 @@
+[10/06/2016] v1.1
+   -- Forte revisão geral nos comentários;
+   -- Remoção de parâmetros inúteis;
+   -- Removi a função main() de testes.
+
+[10/06/2016] v1.0
+   -- comit inicial.
