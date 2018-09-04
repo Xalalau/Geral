@@ -1,9 +1,8 @@
 /*
- * GERAL v1.1 [10/06/2016]
+ * GERAL v1.2 [28/09/2017]
  * por Xalalau Xubilozo
- *
- * Licensa: CC BY-NC-SA 4.0
- * http://creativecommons.org/licenses/by-nc-sa/4.0/
+ * https://github.com/xalalau/Xalateca/tree/master/C/Geral
+ * Licença: MIT
  * */
 
 #ifndef HEADER_FILE
@@ -33,7 +32,7 @@
   #define INVALID_FILE_ATTRIBUTES 0 /* Definicao desbugante de Linux */
   #define DPADRAO(pw) pw = getpwuid(getuid())
   #define DPADRAO2(pw, homedir) homedir = pw->pw_dir
-  #define GetFileAttributes(lixo) printf("Nada") /* Definicao desbugante de Linux */
+  #define GetFileAttributes(lixo) printf(" ") /* Definicao desbugante de Linux */
 #elif _WIN32
   #define GetCurrentDir _getcwd
   #define PULO "\r\n"
@@ -42,8 +41,9 @@
   #define SISTEMA "Windows"
   #define CLRSCR system("cls")
   #define PAUSA system("echo. & pause")
-  #define DPADRAO(pw) printf("Nada") /* Definicao desbugante de Windows */
-  #define DPADRAO2(pw, homedir) printf("Nada") /* Definicao desbugante de Windows */
+  #define DPADRAO(pw) printf(" ") /* Definicao desbugante de Windows */
+  #define DPADRAO2(pw, homedir) printf(" ") /* Definicao desbugante de Windows */
+  int readlink(char str[], char dir_base[], int valor);
 #endif
 
 #define MAX_CHAR_DIR 255
@@ -51,7 +51,7 @@
 
 void geral_erro();
 void geral_pausar();
-void geral_pegarPastaCorrente();
+int geral_pegarPastaCorrente();
 int geral_verificarExistencia(char arquivo[]);
 int geral_criarPasta(char pasta[]);
-int geral_existeCharXNoArrayY(char ch, char array[]);
+int geral_existeCharXNaStringY(char ch, char array[]);

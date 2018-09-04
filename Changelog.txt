@@ -1,7 +1,15 @@
+[28/09/2017] v1.2
+   -- Licença atualizada;
+   -- Informações adicionadas;
+   -- Melhorias no cabeçalho;
+   -- README.md atualizado;
+   -- geral_pegarPastaCorrente() voltou a retornar valores;
+   -- Conserto na declaração de geral_existeCharXNaStringY().
+
 [10/06/2016] v1.1
    -- Forte revisão geral nos comentários;
    -- Remoção de parâmetros inúteis;
    -- Removi a função main() de testes.
 
 [10/06/2016] v1.0
-   -- comit inicial.
+   -- Biblioteca separada do meu outro projeto, GMBR DS.

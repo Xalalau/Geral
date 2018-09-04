@@ -16,18 +16,20 @@ void geral_pausar() {
   PAUSA;  
 }
 
-void geral_pegarPastaCorrente(char dir_base[]) {
+int geral_pegarPastaCorrente(char dir_base[]) {
   // Retorna o diretório corrente
   //
   // "RETORNO":
-  // Se dir_base[] ficar com um diretório = Sucesso,
-  // Se dir_base[] ficar igual = Falhou
+  // 1 = Pasta corrente obtida com sucesso,
+  // 2 = Falha
+  //
+  // Note que a pasta corrente é salva em dir_base[]
 
   if (strcmp(SISTEMA,"Linux") == 0) {
     int i = 0;
 
     if (readlink("/proc/self/exe", dir_base, MAX_CHAR_DIR) == -1)
-      return;
+      return 2;
     else {
       i = strlen(dir_base);
       while(dir_base[i] != BARRA2)
@@ -36,9 +38,10 @@ void geral_pegarPastaCorrente(char dir_base[]) {
     }
   } else if (strcmp(SISTEMA,"Windows") == 0) {
     if (!GetCurrentDir(dir_base, MAX_CHAR_DIR))
-      return;
+      return 2;
   }
   strcat(dir_base, BARRA);
+  return 1;
 }
 
 int geral_verificarExistencia(char arquivo[]) {

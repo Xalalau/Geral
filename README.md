@@ -1,6 +1,10 @@
 # Biblioteca geral_*
 
-Funciona no Windows e no Linux.
+Essa biblioteca é um aglomerado de funões para usos diversos.
+
+Ela funciona no Windows e no Linux.
+
+### Funções
 
 void **geral_erro** () { }
 ```
@@ -10,14 +14,15 @@ void **geral_pausar** () { }
 ```
 Uma pausa para ver as mensagens no terminal
 ```
-void **geral_pegarPastaCorrente** (char dir_base[ ]) { }
+int **geral_pegarPastaCorrente** (char dir_base[ ]) { }
 ```
 Retorna o diretório corrente
 
-"RETORNO":
+RETORNO:
+1 = Pasta corrente obtida com sucesso,
+2 = Falha
 
-Se dir_base[ ] ficar com um diretório = Sucesso,
-Se dir_base[ ] ficar igual = Falhou
+Note que a pasta corrente é salva em dir_base[]
 ```
 
 int **geral_verificarExistencia** (char arquivo[ ]) { }
@@ -26,7 +31,7 @@ Verifica a exitencia de arquivos
 
 ENTRADA:
 
-arquivo[ ] = Caminho do arquivo
+arquivo[] = Caminho do arquivo
  
 RETORNO:
 
@@ -39,7 +44,7 @@ Cria pastas
 
 ENTRADA:
 
-pasta[ ] = Caminho de pasta
+pasta[] = Caminho de pasta
 
 RETORNO:
 
@@ -54,7 +59,7 @@ Verifica se existe o char X no array Y
 ENTRADA:
 
 ch = Caracter a ser procurado
-array[ ] = Texto onde procuraremos o caracter
+array[] = Texto onde procuraremos o caracter
 
 RETORNO:
 
