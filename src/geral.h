@@ -7,6 +7,7 @@
 
 #ifndef GERAL_H
 #define GERAL_H
+
 	#define MAX_CHAR_DIR 255
 	#define MAX_CHAR_URL 2000
 
@@ -25,11 +26,14 @@
 		#define CLRSCR system("cls")
 		#define PAUSA system("echo. & pause")
 	#endif
+	
+	void geral_erro();
+	void geral_pausar();
+	int geral_pegarPastaCorrente();
+	int geral_verificarExistencia(char arquivo[]);
+	int geral_criarPasta(char pasta[]);
+	int geral_existeCharXNaStringY(char ch, char array[]);
+
 #endif //GERAL_H
 
-void geral_erro();
-void geral_pausar();
-int geral_pegarPastaCorrente();
-int geral_verificarExistencia(char arquivo[]);
-int geral_criarPasta(char pasta[]);
-int geral_existeCharXNaStringY(char ch, char array[]);
+
