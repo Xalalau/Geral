@@ -1,7 +1,6 @@
 #include "geral.h"
 #include <stdio.h>
 #include <string.h>
-#include <stdlib.h> /* system() */
 #include <sys/stat.h> /* st */
 #include <errno.h>
 

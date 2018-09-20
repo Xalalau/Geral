@@ -11,6 +11,8 @@
 	#define MAX_CHAR_DIR 255
 	#define MAX_CHAR_URL 2000
 
+	#include <stdlib.h> /* system() */
+
 	#if __linux__
 		#define PULO "\n"
 		#define BARRA "/"
