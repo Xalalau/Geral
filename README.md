@@ -1,4 +1,4 @@
-# Biblioteca *
+# Biblioteca geral.*
 
 Essa biblioteca é um aglomerado de funções para usos diversos.
 
