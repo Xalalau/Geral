@@ -1,3 +1,7 @@
+v1.4 [20/09/2018]
+- Documentação atualizada;
+- Biblioteca agora funciona por classe.
+
 v1.3 [04/09/2018]
 - Versionamento está diferente, nada mais de updates gigantes de uma vez só;
 - Melhores retornos nas função;

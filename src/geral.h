@@ -1,5 +1,5 @@
 /*
- * GERAL v.Git
+ * GERAL v.1.4
  * por Xalalau Xubilozo
  * https://github.com/xalalau/Xalateca/tree/master/C/Geral
  * Licença: MIT
