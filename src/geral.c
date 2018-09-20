@@ -18,7 +18,7 @@
 	int readlink(char str[], char dir_base[], int valor);
 #endif
 
-void geral_erro() {
+static void erro() {
 	/*
 	 * Imprime uma mensagem de erro genérica
 	 * Nota: eu queria fazer um uso decente dessa função, mas ela está essa coisa genérica e inútil no momento
@@ -30,7 +30,7 @@ void geral_erro() {
 	PAUSA;
 }
 
-void geral_pausar() {
+static void pausar() {
 	/*
 	 * Uma pausa para ver as mensagens no terminal
 	 * 
@@ -42,7 +42,7 @@ void geral_pausar() {
 	PAUSA;
 }
 
-int geral_pegarPastaCorrente(char dir_base[]) {
+static int pegarPastaCorrente(char dir_base[]) {
 	/*
 	 * Retorna o diretório corrente
 	 *
@@ -75,7 +75,7 @@ int geral_pegarPastaCorrente(char dir_base[]) {
 	return 1;
 }
 
-int geral_verificarExistencia(char arquivo[]) {
+static int verificarExistencia(char arquivo[]) {
 	/*
 	 * Verifica a exitência de arquivos
 	 *
@@ -100,7 +100,7 @@ int geral_verificarExistencia(char arquivo[]) {
 	return 0;
 }
 
-int geral_criarPasta(char pasta[]) {
+static int criarPasta(char pasta[]) {
 	/*
 	 * Cria pastas
 	 *
@@ -116,7 +116,7 @@ int geral_criarPasta(char pasta[]) {
 
 	char temp[MAX_CHAR_DIR];
 
-	if (geral_verificarExistencia(pasta) == 2) {
+	if (verificarExistencia(pasta) == 2) {
 		if (strcmp(SISTEMA,"Linux") == 0) {
 			strcat(strcat(strcpy(temp, "mkdir -p \""), pasta), "\"");
 			if((system(temp)) != -1)
@@ -133,7 +133,7 @@ int geral_criarPasta(char pasta[]) {
 	return 3;
 }
 
-int geral_existeCharXNaStringY(char ch, char array[]) {
+static int existeCharXNaStringY(char ch, char array[]) {
 	/*
 	 * Verifica se existe o char X no array Y
 	 *
@@ -155,3 +155,13 @@ int geral_existeCharXNaStringY(char ch, char array[]) {
 
 	return 0;
 }
+
+// [Classe] Exposição das funções necessárias para os usuários
+struct geral_h geral = {
+	.erro = &erro,
+	.pausar = &pausar,
+	.pegarPastaCorrente = &pegarPastaCorrente,
+	.verificarExistencia = &verificarExistencia,
+	.criarPasta = &criarPasta,
+	.existeCharXNaStringY = &existeCharXNaStringY
+};

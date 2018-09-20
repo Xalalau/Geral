@@ -1,5 +1,5 @@
 /*
- * GERAL v1.3 [04/09/2018]
+ * GERAL v.Git
  * por Xalalau Xubilozo
  * https://github.com/xalalau/Xalateca/tree/master/C/Geral
  * Licença: MIT
@@ -26,14 +26,15 @@
 		#define CLRSCR system("cls")
 		#define PAUSA system("echo. & pause")
 	#endif
-	
-	void geral_erro();
-	void geral_pausar();
-	int geral_pegarPastaCorrente();
-	int geral_verificarExistencia(char arquivo[]);
-	int geral_criarPasta(char pasta[]);
-	int geral_existeCharXNaStringY(char ch, char array[]);
+
+	// [Classe] Exposição das funções necessárias para os usuários
+	struct geral_h {
+		void (*erro)();
+		void (*pausar)();
+		int (*pegarPastaCorrente)();
+		int (*verificarExistencia)(char arquivo[]);
+		int (*criarPasta)(char pasta[]);
+		int (*existeCharXNaStringY)(char ch, char array[]);
+	} geral;
 
 #endif //GERAL_H
-
-
