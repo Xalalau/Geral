@@ -1,7 +1,7 @@
 /*
  * GERAL v.Git
  * por Xalalau Xubilozo
- * https://github.com/xalalau/Xalateca/tree/master/C/Geral
+ * https://github.com/Xalalau/Geral
  * Licença: MIT
  * */
 
